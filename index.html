@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Навигационная панель</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/font/fonts.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container-fluid flex-column flex-xl-row gap-max-xl-10 w-100">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo.png" alt="ANTENOR" height="30">
+            </a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/img/user_icon.svg" alt="">Профиль
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" href="#">Настройки</a>
+                            <a class="dropdown-item" href="#">Выход</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/img/tool_icon.svg" alt="">Инструменты
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <a class="dropdown-item" href="#">Опция 1</a>
+                            <a class="dropdown-item" href="#">Опция 2</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="navbar-nav-wrapper">
+                    <button type="button" class="btn-nav-left"><img src="assets/img/chevron-left.png" alt=""></button>
+                    <ul class="navbar-nav navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">
+                                <img src="assets/img/dashboard_nav_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/dashboard_nav_icon_white.svg" alt="" class="icon_white">
+                                Дашборд
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="monitoring.html">
+                                <img src="assets/img/monitoring_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/monitoring_icon_white.svg" alt="" class="icon_white">
+                            Мониторинг</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="track.html">
+                                <img src="assets/img/location_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/location_icon_white.svg" alt="" class="icon_white">
+                                Треки
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="messages.html">
+                                <img src="assets/img/message_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/message_icon_white.svg" alt="" class="icon_white">
+                                Сообщения
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reports.html">
+                                <img src="assets/img/reports_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/reports_icon_white.svg" alt="" class="icon_white">
+                                Отчеты
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="geozony.html">
+                                <img src="assets/img/geozony_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/geozony_icon_white.svg" alt="" class="icon_white">
+                                Геозоны
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="uchastky.html">
+                                <img src="assets/img/zones_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/zones_icon_white.svg" alt="" class="icon_white">
+                                Участки
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="treatment.html">
+                                <img src="assets/img/treatments_icon.svg" alt="" class="icon_black">
+                                <img src="assets/img/treatments_icon_white.svg" alt="" class="icon_white">
+                                Обработки
+                            </a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn-nav-right"><img src="assets/img/chevron-right.png" alt=""></button>
+                </div>
+                <button type="button" class="nav_btn desktop" id="burger-close">
+                    <img src="assets/img/nav_btn.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom dashboard-filter">
+        <button type="button" id="burger" class="nav_btn mobile"><img src="assets/img/nav_btn.svg" alt=""></button>
+        <div class="container-fluid">
+            <div class="row flex-column flex-max-xxl-column flex-xl-row gap-max-xl-10">
+                <div class="col-12 col-sm-12 col-lg-6 col-xl-4 d-flex dashboard-filter-tabs">
+                    <div class="col-3 col-sm-3 p-0">
+                        <button type="button" class="btn btn-primary btn-block bordered round-r-0 dashboard-filter-tab p-3">Сегодня</button>
+                    </div>
+                    <div class="col-3 col-sm-3 p-0">
+                        <button type="button" class="btn btn-block rounded-0 bordered dashboard-filter-tab">Вчера</button>
+                    </div>
+                    <div class="col-3 col-sm-3 p-0">
+                        <button type="button" class="btn btn-block rounded-0 bordered dashboard-filter-tab">Неделя</button>
+                    </div>
+                    <div class="col-3 col-sm-3 p-0">
+                        <button type="button" class="btn btn-block bordered round-l-0 dashboard-filter-tab">Месяц</button>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column flex-lg-row">
+                    <div class="form-group d-flex align-items-center mr-4 filter-date">
+                        <label for="date-range" class="label mr-2">Период:</label>
+                        <div class="input-group mr-1 mr-sm-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" class="w-auto form-control rounded input-date" id="date-range-from" value="от 02.02.2023 ">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" class="w-auto form-control rounded input-date" id="date-range-to" value="до 02.02.2023">
+                        </div>
+                    </div>
+                    <div class="form-group d-flex align-items-center mt-3 mt-lg-0">
+                        <label for="object-select" class="label mr-2">Объекты:</label>
+                        <select class="form-control pr-5 w-auto rounded js-select2" id="object-select" multiple="multiple">
+                            <option>Все объекты</option>
+                            <option>
+                                <span class="select-text-bold">Объект 2</span>
+                            </option>
+                            <option>
+                                <span class="select-text">Объект 3</span>
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary ml-sm-3 rounded mt-3 mt-lg-0 w-100 w-lg-auto">Применить</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="main-grid">
+        <div class="container-fluid">
+            <div class="row flex-xl-row flex-column">
+                <div class="col-12 col-xl-7">
+                    <div class="row max-md-d-grid-2">
+                        <div class="col ordinary">
+                            <h3>Активные автомобили</h3>
+                            <p class="main-param">856</p>
+                        </div>
+                        <div class="col ordinary">
+                            <h3>Активные водители</h3>
+                            <p class="main-param">21</p>
+                        </div>
+                        <div class="col ordinary">
+                            <h3>Расход топлива</h3>
+                            <p class="main-param">4567 л</p>
+                        </div>
+                        <div class="col ordinary">
+                            <h3>Километраж</h3>
+                            <p class="main-param">6785 км</p>
+                        </div>
+                    </div>
+                    <div class="row flex-xl-row flex-column">
+                        <div class="col medium">
+                            <div class="d-flex justify-content-between mb-3 flex-nowrap align-items-center">
+                                <h2>Cостояние движения</h2>
+                                <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                            </div>
+                            <div class="d-flex">
+                                <div class="diagram">
+                                    <div class="info-inside">
+                                        <div class="info-inside-count">23</div>
+                                        <div class="info-inside-text">Автомобиля</div>
+                                    </div>
+                                    <div id="MotionState" style="width:430px; height: 430px"></div>
+                                </div>
+                                <table class="table table-border-0 ml-3">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="status status-red"></div>
+                                            </td>
+                                            <td> <span class="status status-red"></span>Стоят</td>
+                                            <td>13</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="status status-green"></div>
+                                            </td>
+                                            <td>Стоят с зажиганием</td>
+                                            <td>6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="status status-blue"></div>
+                                            </td>
+                                            <td>Движутся с зажиганием</td>
+                                            <td>9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="status status-red"></div>
+                                            </td>
+                                            <td>Движутся</td>
+                                            <td>4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                        <div class="col medium">
+                            <div class="d-flex justify-content-between mb-3 flex-nowrap align-items-center">
+                                <h2>Cостояние соединения</h2>
+                                <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                            </div>
+                            <div class="d-flex">
+                                <div class="diagram">
+                                    <div class="info-inside">
+                                        <div class="info-inside-count">2548</div>
+                                        <div class="info-inside-text">Автомобілів</div>
+                                    </div>
+                                    <div id="ConnectionState" style="width:380px; height: 430px"></div>
+                                </div>
+                                <table class="table table-border-0 ml-3">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="status status-grey"></div>
+                                            </td>
+                                            <td>Не подключены</td>
+                                            <td>13</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="status status-green"></div>
+                                            </td>
+                                            <td>Подключены</td>
+                                            <td>4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-5 p-0 pl-xl-3 pr-xl-3">
+                    <div class="col big main-notifications">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2>Последние уведомления</h2>
+                            <button type="button" class="btn btn-primary rounded p-2 p-sm-3">Прочитать все</button>
+                        </div>
+                        <ul class="main-notifications-list">
+                            <li class="d-flex">
+                                <img src="assets/img/complete_route_icon.svg" alt="">
+                                <div class="text-group">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="w-100">Завершение маршрута</h3>
+                                        <div class="text text-date">20.05.2024</div>
+                                    </div>
+                                    <div class="text">Ford Fusion AK4745PD завершил свой маршрут Ford Fusion AK4745PD завершил свой маршрут...</div>
+                                </div>
+                            </li>
+                            <li class="d-flex">
+                                <img src="assets/img/avatar.png" alt="">
+                                <div class="text-group">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="w-100">Завершение маршрута</h3>
+                                        <div class="text text-date">20.05.2024</div>
+                                    </div>
+                                    <div class="text">Ford Fusion AK4745PD завершил свой маршрут Ford Fusion AK4745PD завершил свой маршрут...</div>
+                                </div>
+                            </li>
+                            <li class="d-flex">
+                                <img src="assets/img/complete_route_icon.svg" alt="">
+                                <div class="text-group">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="w-100">Завершение маршрута</h3>
+                                        <div class="text text-date">20.05.2024</div>
+                                    </div>
+                                    <div class="text">Ford Fusion AK4745PD завершил свой маршрут Ford Fusion AK4745PD завершил свой маршрут...</div>
+                                </div>
+                            </li>
+                            <li class="d-flex">
+                                <img src="assets/img/complete_route_icon.svg" alt="">
+                                <div class="text-group">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="w-100">Завершение маршрута</h3>
+                                        <div class="text text-date">20.05.2024</div>
+                                    </div>
+                                    <div class="text">Ford Fusion AK4745PD завершил свой маршрут Ford Fusion AK4745PD завершил свой маршрут...</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-xl-row flex-column">
+                <div class="col-12 col-xl-7">
+                    <div class="row">
+                        <div class="col big">
+                            <div class="d-flex justify-content-between align-items-center mb-3 flex-nowrap align-items-center">
+                                <div class="group d-flex align-items-center">
+                                    <h2 class="mr-5">Потрачено топлива по ДУТ</h2>
+                                    <button type="button" class="btn-grafic active">
+                                        <img src="assets/img/btn_grafic_1.svg" alt="">
+                                        <img src="assets/img/btn_grafic_1_active.svg" alt="" class="active">
+                                    </button>
+                                    <button type="button" class="btn-grafic">
+                                        <img src="assets/img/btn_grafic_2.svg" alt="">
+                                        <img src="assets/img/btn_grafic_2_active.svg" alt="" class="active">
+                                    </button>
+                                </div>
+                                <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                            </div>
+                            <div class="d-flex flex-xl-row flex-column">
+                                <div class="col-12 col-xl-8 grafic">
+                                    <img src="assets/img/table.png" alt="" class="w-100">
+                                    <img src="assets/img/table_2.png" alt="" class="w-100 hide">
+                                </div>
+                                <div class="col-12 col-xl-4 pl-xl-3 pr-xl-3">
+                                    <table class="table table-border-0 ml-3 mt-4 mt-xl-0 table-oil">
+                                        <tbody>
+                                            <tr>
+                                                <td class="w-max-xl-20">
+                                                    <div class="status status-red"></div>
+                                                </td>
+                                                <td> <span class="status status-red"></span>DAF АВ3437КК</td>
+                                                <td class="text-right">4754 л</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="w-max-xl-20">
+                                                    <div class="status status-green"></div>
+                                                </td>
+                                                <td>Ford Transit АІ0013КХ</td>
+                                                <td class="text-right">6796 л</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="w-max-xl-20">
+                                                    <div class="status status-blue"></div>
+                                                </td>
+                                                <td>MAN АВ 5674 ІС</td>
+                                                <td class="text-right">909 л</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="w-max-xl-20">
+                                                    <div class="status status-red"></div>
+                                                </td>
+                                                <td>МТЗ 14063 АІ</td>
+                                                <td class="text-right">456 л</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="w-max-xl-20">
+                                                    <div class="status status-red"></div>
+                                                </td>
+                                                <td>Ford Fusion АХ8648КЕ</td>
+                                                <td class="text-right">786 л</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="w-max-xl-20">
+                                                    <div class="status status-red"></div>
+                                                </td>
+                                                <td>Audi Q5 АА3524РК</td>
+                                                <td class="text-right">0 л</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-5 p-0 pl-xl-3 pr-xl-3">
+                    <div class="col big">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2>Активность водителей</h2>
+                            <div class="group d-flex flex-nowrap align-items-center flex-nowrap">
+                                <button type="button" class="btn btn-primary rounded">Просмотреть водителей</button>
+                                <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                            </div>
+                        </div>
+                        <div class="drivers-activity-wrapper">
+                            <table class="drivers-activity">
+                                <thead>
+                                    <tr>
+                                        <th>Водитель</th>
+                                        <th>Категория</th>
+                                        <th>Отработанные часы</th>
+                                        <th>Статус</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="avatar"><img src="assets/img/avatar.png" alt=""></span>
+                                            <span class="name">Justin Lipshutz</span>
+                                        </td>
+                                        <td>В</td>
+                                        <td>353 ч</td>
+                                        <td><span class="status-info status-active">Активен</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="avatar"><img src="assets/img/avatar.png" alt=""></span>
+                                            <span class="name">Justin Lipshutz</span>
+                                        </td>
+                                        <td>В ; С1 ; С</td>
+                                        <td>56 ч</td>
+                                        <td><span class="status-info status-free">Свободен</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="avatar"><img src="assets/img/avatar.png" alt=""></span>
+                                            <span class="name">Justin Lipshutz</span>
+                                        </td>
+                                        <td>В</td>
+                                        <td>353 ч</td>
+                                        <td><span class="status-info status-busy">Занят</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="avatar"><img src="assets/img/avatar.png" alt=""></span>
+                                            <span class="name">Justin Lipshutz</span>
+                                        </td>
+                                        <td>В</td>
+                                        <td>353 ч</td>
+                                        <td><span class="status-info status-active">Активен</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-xl-row flex-column">
+                <div class="col top">
+                    <div class="d-flex justify-content-between mb-3 flex-nowrap align-items-center">
+                        <h2>Топ по використанню палива</h2>
+                        <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                    </div>
+                    <div class="table-progress-wrapper">
+                        <table class="table-progress">
+                            <thead>
+                                <tr>
+                                    <th class="w-max-xl-100 w-175"></th>
+                                    <th><span>0л</span></th>
+                                    <th><span>250л</span></th>
+                                    <th><span>500л</span></th>
+                                    <th><span>1000л</span></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="assets/img/car.png" alt="">
+                                        <span class="name">DAF 125</span></td>
+                                    <td colspan="4">
+                                        <div class="progress progress-oil">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>78 л</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="assets/img/car.png" alt="">
+                                        <span class="name">DAF 125</span></td>
+                                    <td colspan="4">
+                                        <div class="progress progress-oil">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>65 л</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col top ">
+                    <div class="d-flex justify-content-between mb-3 flex-nowrap align-items-center">
+                        <h2>Топ объектов по пробегу</h2>
+                        <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                    </div>
+                    <div class="table-progress-wrapper">
+                        <table class="table-progress">
+                            <thead>
+                                <tr>
+                                    <th  class="w-max-xl-100 w-175"></th>
+                                    <th><span>0км</span></th>
+                                    <th><span>10000км</span></th>
+                                    <th><span>50000км</span></th>
+                                    <th><span>100000км</span></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="assets/img/car.png" alt="">
+                                        <span class="name">DAF 125</span></td>
+                                    <td colspan="4">
+                                        <div class="progress progress-distance">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="800" aria-valuemin="0" aria-valuemax="1000"></div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>56789 км</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col count">
+                    <div class="d-flex justify-content-between mb-3 flex-nowrap align-items-center">
+                        <h2>Количество объектов в геозонах</h2>
+                        <button class="arrows_icon"><img src="assets/img/arrows_icon.svg" alt="" class=""></button>
+                    </div>
+                    <div class="diagram m-auto">
+                        <div class="info-inside">
+                            <div class="info-inside-count">23</div>
+                            <div class="info-inside-text">Автомобиля</div>
+                        </div>
+                        <!--<div id="countObjects" style="width:430px; height: 430px"></div>-->
+                        <img src="assets/img/countObjects.png" alt="" >
+                    </div>
+                    <div class="objects-count mt-3">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="objects-count-status status-red"></div>
+                            9
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="objects-count-status status-green"></div>
+                            13
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="objects-count-status status-blue"></div>
+                            13
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="objects-count-status status-orange"></div>
+                            0
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="objects-count-status status-grey"></div>
+                            6
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="objects-count-status status-blue"></div>
+                            0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script src="assets/js/diagrams.js"></script>
+    <script src="assets/js/jquery.maskedinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
