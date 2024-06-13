@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ol,
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+input,
+a:focus,
+button:focus {
+    box-shadow: none !important;
+}
+button {
+    background: none;
+    border: none;
+    outline: none !important;
+    height: max-content;
+}
+img {
+    width: 100%;
+}
+label {
+    margin: 0;
+}
+.form-group {
+    margin: 0;
+}
+.input-group {
+    flex-wrap: nowrap;
+}
+.input-group span.input-group-text {
+    background: none;
+    border: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table td {
+    padding: 0;
+}
+input {
+    outline: none;
+    padding: 8px 10px;
+    height: 40px;
+}
+select {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 11px 10px;
+    -webkit-appearance: none; /* Safari and Chrome */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* Standard */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #909090;
+}
+select option {
+    padding: 10px 0 !important;
+}
+.border-none {
+    border: none !important
+}
+.modal-content,
+.modal-footer {
+    padding: 0;
+    border: none;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #fff;
+    border-radius: 16px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 16px;
+    background-color: #B0B0B0;
+}
+.fa-calendar-alt:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.9997 3.16687H2.99967C2.0792 3.16687 1.33301 3.91306 1.33301 4.83354V14.8335C1.33301 15.754 2.0792 16.5002 2.99967 16.5002H12.9997C13.9201 16.5002 14.6663 15.754 14.6663 14.8335V4.83354C14.6663 3.91306 13.9201 3.16687 12.9997 3.16687Z' stroke='%23007DF1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.3311 1.50012V4.83346' stroke='%23007DF1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.66113 1.50012V4.83346' stroke='%23007DF1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.33301 8.16656H14.6663' stroke='%23007DF1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7.16211 11.5001H7.99544' stroke='%23007DF1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7.99609 11.5001V14.0001' stroke='%23007DF1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}
+textarea {
+    border: none;
+    resize: none;
+    outline: none;
+    width: 100%;
+}
+.owl-loaded {
+    position: relative;
+}
+.owl-stage-outer {
+    overflow: hidden;
+  }
+  .owl-stage {
+    display: flex;
+  }
+.owl-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+.owl-nav button {
+    pointer-events: all;
+    z-index: 5;
+}
+.owl-nav button span {
+    display: none;
+}
