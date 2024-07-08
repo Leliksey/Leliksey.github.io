@@ -1,7 +1,14 @@
+html,
+body {
+    /* overflow: hidden;
+    height: 100vh; */
+
+}
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 ol,
 ul {
@@ -21,7 +28,12 @@ button {
     background: none;
     border: none;
     outline: none !important;
-    height: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.btn:hover {
+    border-color: #cccccc78;
 }
 img {
     width: 100%;
@@ -133,4 +145,8 @@ textarea {
 }
 .owl-nav button span {
     display: none;
+}
+input[type='radio'] + span::before {
+    content: "";
+    border-radius: 50% !important;
 }

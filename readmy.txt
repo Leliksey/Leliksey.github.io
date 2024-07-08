@@ -1,0 +1,62 @@
+Страница Маршруты
+    создание нового маршрута по кнопке #btn-add-route
+    окно создания нового маршрута - .modal-add-route
+
+    табы Контрольные точки - 
+        таб Точка - data-tab-point="point" открывает блок data-target="point"
+        таб Геозоны - data-tab-point="geozons" открывает блок data-target="geozons"
+        таб Геозоны - data-tab-point="objects" открывает блок data-target="objects"
+    
+    Кнопка #btn-add-point открывает окно добавления контрольной точки .modal-add-point добавляя к нему класс open
+    Кнопка #btn-add-point-geo открывает окно добавления контрольной точки геозоны .modal-add-point-geo добавляя к нему класс open
+    Кнопка #btn-add-point-object открывает окно добавления контрольной точки объекта .modal-add-point-object добавляя к нему класс open
+
+    Кнопка отображение #view__options открывает попап .modal-routes-options
+
+    Клик на название маршрута .route-name открывает #panel-bottom
+
+    Клик на кнопку добавить расписание .add_schedule открывает .moadl-add-schedule
+
+    таб Расписание data="schedule" открывает вкладку data-target="schedule"
+    таб Ограничения по времени data="time_limits" открывает вкладку data-target="time_limits"
+    таб Объекты data="objects" открывает вкладку data-target="objects"
+    таб Имя рейса data="names" открывает вкладку data-target="names"
+
+
+
+Страница Водители
+    Кнопка .btn-drivers-history открывает окно историю назначений .modal-drivers-history добавляя к нему класс open
+    Кнопка .btn-add-object-to-driver открывает Назначение объекта водителю .modal-add-object-to-driver добавляя к нему класс open
+    Кнопка .btn-add-shift открывает Назначение объекта водителю .modal-add-shift добавляя к нему класс open
+
+    Кнопка #btn-add-driver открывает Добавление нового водителя .modal-add-driver добавляя к нему класс open
+    Кнопка #btn-edit-driver открывает Редактирование нового водителя .modal-edit-driver добавляя к нему класс open
+
+    Кнопка .search-button открывает окно сортировки .modal-sort добавляя к нему класс open
+
+
+
+Страница Прицепы
+    Кнопка #btn-add-trailer открывает Добавление нового прицепа .modal-add-trailer добавляя к нему класс open
+    Кнопка .btn-edit-trailer открывает Добавление нового прицепа .modal-edit-trailer добавляя к нему класс open
+    Кнопка #btn-add-trailers-group открывает Создание новой группы .modal-add-trailers-group добавляя к нему класс open
+    Кнопка .search-button открывает окно сортировки .modal-sort добавляя к нему класс open
+
+Страница Пассажиры
+    Кнопка #btn-add-passenger открывает Добавление нового пассажира .modal-add-passenger добавляя к нему класс open
+    Кнопка .btn-edit-passenger открывает Добавление нового пассажира .modal-edit-passenger добавляя к нему класс open
+    Кнопка #btn-add-passengers-group открывает Создание новой группы .modal-add-passengers-group добавляя к нему класс open
+    Кнопка .search-button открывает окно сортировки .modal-sort добавляя к нему класс open
+
+
+Страница Задания
+    Кнопка Включить по умолчанию красная благодаря классу .btn-red, при добавлении класса .btn-green становится зеленой
+    Кнопка .btn-modal-limits-setup открывает окно настройки времени .modal-limits-setup  добавляя к нему класс open
+
+    Кнопка #btn-add-task открывает Создание новой команды .modal-add-new-comand добавляя к нему класс open
+
+    В зависимости какой радио с именем command-type выбран берется его значение аттрибута data-command, и на шаге 2 открывается окно с соответствующим аттрибутом data-command-target убирая у него класс hide
+    На последующих шагах переключается класс hide у блоков с классом tab-command
+
+
+

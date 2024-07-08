@@ -11,14 +11,14 @@ $(document).ready(function() {
 
     //Переключение табов в фильтре
     $(document).on("click", ".dashboard-filter-tab", function() {
-        $(".dashboard-filter-tab").removeClass("btn-primary");
+        $(".dashboard-filter-tab").removeClass("btn-primary ");
         $(this).addClass("btn-primary");
         // $(this).parents(".column-left-list").find(".card-list-wrapper-geo").toggleClass("hide")
         let data_tab = $(this).attr("data-tab");
         $("[data-tab-target]").addClass("hide")
         $("[data-tab-target='" + data_tab + "']").removeClass("hide")
     });
-
+    
     
     // установка высоты карты
     var data_height = $(".data").height();
@@ -92,7 +92,8 @@ $(document).ready(function() {
 
     // закрытие модального окна
     $(document).on("click", ".close-modal", function() {
-        $(this).parents(".modal, .player").hide();
+        // $(this).parents(".modal, .player").hide();
+        $(this).parents(".modal, .player").removeClass("open");
     });
     
 
@@ -127,14 +128,40 @@ $(document).ready(function() {
         "#btn-add-uchastok-crops": ".modal-add-crop",
         ".uchastok-from-file": ".modal-import-uchastok",
         "#btn-add-geozona-group": ".modal-add-geo-group",
+        "#add-agrotechnika": "#agrotechnika",
+        "#add-type-treatment": "#type-treatment",
+        "#add-trailer": "#trailer",
+        "#btn-add-treatment": ".modal-add-treatment",
+        ".manual-open": ".modal-manual",
+        "#btn-add-route": ".modal-add-route",
+        "#btn-add-point": ".modal-add-point",
+        "#btn-add-point-geo": ".modal-add-point-geo",
+        "#btn-add-point-object": ".modal-add-point-object",
+        ".add_schedule": ".modal-add-schedule",
+        ".btn-drivers-history": ".modal-drivers-history",
+        ".btn-add-object-to-driver": ".modal-add-object-to-driver",
+        ".btn-add-shift": ".modal-add-shift",
+        "#btn-add-driver": ".modal-add-driver",
+        ".btn-edit-driver": ".modal-edit-driver",
+        "#btn-add-trailer": ".modal-add-trailer",
+        ".btn-edit-trailer": ".modal-edit-trailer",
+        "#btn-add-trailers-group": ".modal-add-trailers-group",
+
+        "#btn-add-passenger": ".modal-add-passenger",
+        ".btn-edit-passenger": ".modal-edit-passenger",
+        "#btn-add-passengers-group": ".modal-add-passengers-group",
+        ".btn-modal-limits-setup": ".modal-limits-setup",
+        "#btn-add-task": ".modal-add-new-comand",
+        // ".btn-sort": ".modal-sort",
     };
     
     $.each(actionMappings, function(trigger, target) {
         $(document).on("click", trigger, function() {
             if (trigger === ".search-button") {
-                $(target).toggle();
+                $(target).toggleClass("open");
             } else {
-                $(target).show();
+                // $(target).show();
+                $(target).addClass("open");
             }
         });
     });
@@ -415,7 +442,7 @@ $(document).ready(function() {
         items: 5,
         margin: 16,
         autoWidth:true,
-        slideBy: 3
+        slideBy: 10
     });
 
 
@@ -439,12 +466,189 @@ $(document).ready(function() {
     });
     $(document).on("click", ".modal-add-elem", function() {
          let first_elem = $(this).parents("tr");
+         let first_elem_field = $(this).parents(".form-group-field");
          let first_elem_content = $(this).parents("tr").html();
+         let first_elem_field_content = $(this).parents(".form-group-field").html();
          let form_group = '<tr class="cloned">' + first_elem_content + '<tr>';
+         let form_group_field = '<div class="cloned form-group d-flex align-items-md-center gap-20 row-gap-2 form-group-field flex-column flex-md-row ">' + first_elem_field_content + '<div>';
          $(form_group).insertBefore(first_elem);
+         $(form_group_field).insertBefore(first_elem_field);
     });
- $(document).on("click", ".modal-del-elem", function() {
+
+    $(document).on("click", ".modal-del-elem", function() {
        $(this).parents("tr").remove();
+       $(this).parents(".form-group-field").remove();
+    });
+
+    $(document).on("click", ".btn-remove-treatment", function() {
+       $(this).parents(".item").remove();
+    });
+    $(document).on("click", "#btn-add-manual-row", function() {
+        const dataValues = $('#data-values');
+            let collectedData = [];
+            dataValues.find('select, input').each(function() {
+                collectedData.push($(this).val());
+            });
+
+            let newRow = `
+                <tr>
+                    <td>${collectedData[0]}</td>
+                    <td>${collectedData[1]}</td>
+                    <td>${collectedData[2]}</td>
+                    <td>${collectedData[3]}</td>
+                    <td>${collectedData[4]}</td>
+                    <td>${collectedData[5]} л/га</td>
+                    <td class="text-right d-flex flex-nowrap gap-10 align-items-center justify-content-end">
+                        <button class="btn btn-card rounded btn-hover">
+                            <img src="assets/img/icon_filter_blue.svg" alt="" class="icon_black w-auto">
+                            <img src="assets/img/icon_filter_white.svg" alt="" class="icon_white w-auto">
+                        </button>
+                        <button type="button" class="p-0 btn-remove-manual-row">
+                            <img src="assets/img/remove.svg" alt="" class="w-auto">
+                        </button>
+                    </td>
+                </tr>
+            `;
+
+            $('.table-manual tbody').append(newRow);
+
+    });
+    $(document).on("click", ".btn-remove-manual-row", function() {
+        $(this).parents("tr").remove();
+     });
+
+
+    $(document).on("click", "[data-tab-point]", function() {
+        let data_val = $(this).attr("data-tab-point");
+        $("[data-target]").addClass("hide");
+        $("[data-target='" + data_val + "']").removeClass("hide");
+     });
+
+     const $slider = $('#myRange');
+
+     function updateSliderBackground() {
+         const value = ($slider.val() - $slider.attr('min')) / ($slider.attr('max') - $slider.attr('min')) * 100;
+         $slider.css('background', `linear-gradient(90deg, #007DF126 ${value}%, #007DF126 ${value}%)`);
+     }
+
+     function changeValue(change) {
+         let newValue = parseInt($slider.val()) + change;
+         if (newValue >= $slider.attr('min') && newValue <= $slider.attr('max')) {
+             $slider.val(newValue);
+             updateSliderBackground();
+         }
+     }
+
+     $slider.on('input', updateSliderBackground);
+
+     updateSliderBackground();
+
+     function generateDividers() {
+        const numLines = 14;
+        const $slider = $('#myRange');
+        const $wrap = $('.input-range-wrap');
+        const inpWidth = $slider.width();
+        const interval = inpWidth / (numLines - 1);
+    
+        for (let i = 0; i < numLines; i++) {
+          const $line = $('<div class="line"></div>');
+          $line.css({ left: `${i * interval}px` });
+          $wrap.append($line);
+        }
+      }
+    
+     generateDividers();
+
+
+     $(document).on("click", "#view__options", function() {
+        $(".modal-routes-options").toggle();
+     });
+     $(document).on("click", ".route-name", function() {
+        $("#panel-bottom").toggleClass("hidden");
+     });
+
+
+
+     $(".time-limit-row").click(function() {
+        $(this).toggleClass("open");
+        $(this).next().slideToggle();
+     })
+
+
+     $(document).on("click", ".btn-remove-avatar", function() {
+        $(this).parents(".form-group").find(".object-preview").attr("src", "assets/img/trailer_avatar_default.png")
+     });
+     $(document).on("click", ".btn-red", function() {
+        $(this).toggleClass("btn-green")
+     });
+
+
+   
+     $(document).on("click", ".step-next", function() {
+        var count_step = $(".count-step-text").text();
+        +count_step;
+        $(".tab-command").addClass("hide");
+        $(".tab-command").eq(count_step).removeClass("hide");
+        count_step++;
+        let checked_command = $("input[name='command-type']:checked").attr("data-command");
+        $("[data-command-target]").addClass("hide");
+        $("[data-command-target='" + checked_command + "']").removeClass("hide");
+        if(count_step == 5) {
+            $(".step-next").addClass("step-finish");
+            $(".step-finish").removeClass("step-next");
+            $(".step-finish").text("Добавить команду");
+        };
+
+        $(".step-item-nav.active").next().addClass("active");
+        $(".count-step-text").text(count_step);
+        $(".step-back").attr("disabled", false);
+     });
+
+     $(document).on("click", ".step-back", function() {
+        var current_count_step = $(".count-step-text").text();
+        +current_count_step;
+        $(".tab-command").addClass("hide");
+        $(".tab-command").eq(current_count_step - 2).removeClass("hide");
+        current_count_step--;
+        let checked_command = $("input[name='command-type']:checked").attr("data-command");
+        $("[data-command-target]").addClass("hide");
+        $("[data-command-target='" + checked_command + "']").removeClass("hide");
+        $(".step-finish").text("Далее");
+        $(".step-finish").addClass("step-next");
+        $(".step-next").removeClass("step-finish");
+
+        $(".step-item-nav.active").last().removeClass("active");
+        $(".count-step-text").text(current_count_step);
+        if(current_count_step == 1) {
+            $(".step-back").attr("disabled", true);
+            $(".step-item-nav").first().addClass("active");
+        }
+     });
+
+
+     const decreaseButton = document.getElementById('decrease');
+     const increaseButton = document.getElementById('increase');
+     const numberInput = document.getElementById('numberInput');
+ 
+     decreaseButton.addEventListener('click', () => {
+         let currentValue = parseInt(numberInput.value);
+         if (currentValue > 1) {
+             numberInput.value = currentValue - 1;
+         }
+     });
+ 
+     increaseButton.addEventListener('click', () => {
+         let currentValue = parseInt(numberInput.value);
+         numberInput.value = currentValue + 1;
+     });
+
+
+    $("input[name='command-type']").change(function() {
+        if ($("input[name='command-type']:checked").length > 0) {
+            $('.step-next').attr("disabled", false);
+        } else {
+            $('.step-next').attr("disabled", true);
+        }
     });
     
 });
